@@ -1,0 +1,445 @@
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.3) (preloaded format=pdflatex 2022.9.28)  4 OCT 2022 11:08
+entering extended mode
+ restricted \write18 enabled.
+ %&-line parsing enabled.
+**./TFG-template.tex
+(TFG-template.tex
+LaTeX2e <2021-11-15> patch level 1
+L3 programming layer <2022-02-24>
+(C:\Users\mcaix\AppData\Local\Programs\MiKTeX\tex/latex/base\article.cls
+Document Class: article 2021/10/04 v1.4n Standard LaTeX document class
+(C:\Users\mcaix\AppData\Local\Programs\MiKTeX\tex/latex/base\size10.clo
+File: size10.clo 2021/10/04 v1.4n Standard LaTeX file (size option)
+)
+\c@part=\count185
+\c@section=\count186
+\c@subsection=\count187
+\c@subsubsection=\count188
+\c@paragraph=\count189
+\c@subparagraph=\count190
+\c@figure=\count191
+\c@table=\count192
+\abovecaptionskip=\skip47
+\belowcaptionskip=\skip48
+\bibindent=\dimen138
+)
+(C:\Users\mcaix\AppData\Local\Programs\MiKTeX\tex/latex/base\inputenc.sty
+Package: inputenc 2021/02/14 v1.3d Input encoding file
+\inpenc@prehook=\toks16
+\inpenc@posthook=\toks17
+)
+(C:\Users\mcaix\AppData\Local\Programs\MiKTeX\tex/generic/babel\babel.sty
+Package: babel 2022/02/26 3.73 The Babel package
+\babel@savecnt=\count193
+\U@D=\dimen139
+\l@unhyphenated=\language79
+
+(C:\Users\mcaix\AppData\Local\Programs\MiKTeX\tex/generic/babel\txtbabel.def)
+\bbl@readstream=\read2
+\bbl@dirlevel=\count194
+
+*************************************
+* Local config file bblopts.cfg used
+*
+(C:\Users\mcaix\AppData\Local\Programs\MiKTeX\tex/latex/arabi\bblopts.cfg
+File: bblopts.cfg 2005/09/08 v0.1 add Arabic and Farsi to "declared" options of
+ babel
+)
+(C:\Users\mcaix\AppData\Local\Programs\MiKTeX\tex/latex/babel-catalan\catalan.l
+df
+Language: catalan 2005/03/29 v2.2p Catalan support from the babel system
+Package babel Info: Making " an active character on input line 91.
+Warning: You are using encoding OT1 instead of T1.
+Some word breaks will not be found.
+\leftllkern=\dimen140
+\rightllkern=\dimen141
+\raiselldim=\dimen142
+)) (C:\Users\mcaix\AppData\Local\Programs\MiKTeX\tex/latex/tools\multicol.sty
+Package: multicol 2021/10/28 v1.9b multicolumn formatting (FMi)
+\c@tracingmulticols=\count195
+
+Package multicol Warning: May not work with the twocolumn option on input line 
+142.
+
+\mult@box=\box50
+\multicol@leftmargin=\dimen143
+\c@unbalance=\count196
+\c@collectmore=\count197
+\doublecol@number=\count198
+\multicoltolerance=\count199
+\multicolpretolerance=\count266
+\full@width=\dimen144
+\page@free=\dimen145
+\premulticols=\dimen146
+\postmulticols=\dimen147
+\multicolsep=\skip49
+\multicolbaselineskip=\skip50
+\partial@page=\box51
+\last@line=\box52
+\maxbalancingoverflow=\dimen148
+\mult@rightbox=\box53
+\mult@grightbox=\box54
+\mult@firstbox=\box55
+\mult@gfirstbox=\box56
+\@tempa=\box57
+\@tempa=\box58
+\@tempa=\box59
+\@tempa=\box60
+\@tempa=\box61
+\@tempa=\box62
+\@tempa=\box63
+\@tempa=\box64
+\@tempa=\box65
+\@tempa=\box66
+\@tempa=\box67
+\@tempa=\box68
+\@tempa=\box69
+\@tempa=\box70
+\@tempa=\box71
+\@tempa=\box72
+\@tempa=\box73
+\@tempa=\box74
+\@tempa=\box75
+\@tempa=\box76
+\@tempa=\box77
+\@tempa=\box78
+\@tempa=\box79
+\@tempa=\box80
+\@tempa=\box81
+\@tempa=\box82
+\@tempa=\box83
+\@tempa=\box84
+\@tempa=\box85
+\@tempa=\box86
+\@tempa=\box87
+\@tempa=\box88
+\@tempa=\box89
+\@tempa=\box90
+\@tempa=\box91
+\@tempa=\box92
+\c@minrows=\count267
+\c@columnbadness=\count268
+\c@finalcolumnbadness=\count269
+\last@try=\dimen149
+\multicolovershoot=\dimen150
+\multicolundershoot=\dimen151
+\mult@nat@firstbox=\box93
+\colbreak@box=\box94
+\mc@col@check@num=\count270
+) (C:\Users\mcaix\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphicx.sty
+Package: graphicx 2021/09/16 v1.2d Enhanced LaTeX Graphics (DPC,SPQR)
+(C:\Users\mcaix\AppData\Local\Programs\MiKTeX\tex/latex/graphics\keyval.sty
+Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
+\KV@toks@=\toks18
+)
+(C:\Users\mcaix\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphics.sty
+Package: graphics 2021/03/04 v1.4d Standard LaTeX Graphics (DPC,SPQR)
+
+(C:\Users\mcaix\AppData\Local\Programs\MiKTeX\tex/latex/graphics\trig.sty
+Package: trig 2021/08/11 v1.11 sin cos tan (DPC)
+)
+(C:\Users\mcaix\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\graphics.c
+fg
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+)
+Package graphics Info: Driver file: pdftex.def on input line 107.
+
+(C:\Users\mcaix\AppData\Local\Programs\MiKTeX\tex/latex/graphics-def\pdftex.def
+File: pdftex.def 2020/10/05 v1.2a Graphics/color driver for pdftex
+))
+\Gin@req@height=\dimen152
+\Gin@req@width=\dimen153
+)
+(C:\Users\mcaix\AppData\Local\Programs\MiKTeX\tex/latex/fancyhdr\fancyhdr.sty
+Package: fancyhdr 2022/05/18 v4.0.3 Extensive control of page headers and foote
+rs
+\f@nch@headwidth=\skip51
+\f@nch@O@elh=\skip52
+\f@nch@O@erh=\skip53
+\f@nch@O@olh=\skip54
+\f@nch@O@orh=\skip55
+\f@nch@O@elf=\skip56
+\f@nch@O@erf=\skip57
+\f@nch@O@olf=\skip58
+\f@nch@O@orf=\skip59
+)
+(C:\Users\mcaix\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\times.sty
+Package: times 2020/03/25 PSNFSS-v9.3 (SPQR) 
+)
+(C:\Users\mcaix\AppData\Local\Programs\MiKTeX\tex/latex/titlesec\titlesec.sty
+Package: titlesec 2021/07/05 v2.14 Sectioning titles
+\ttl@box=\box95
+\beforetitleunit=\skip60
+\aftertitleunit=\skip61
+\ttl@plus=\dimen154
+\ttl@minus=\dimen155
+\ttl@toksa=\toks19
+\titlewidth=\dimen156
+\titlewidthlast=\dimen157
+\titlewidthfirst=\dimen158
+)
+(C:\Users\mcaix\AppData\Local\Programs\MiKTeX\tex/latex/multirow\multirow.sty
+Package: multirow 2021/03/15 v2.8 Span multiple rows of a table
+\multirow@colwidth=\skip62
+\multirow@cntb=\count271
+\multirow@dima=\skip63
+\bigstrutjot=\dimen159
+)
+(C:\Users\mcaix\AppData\Local\Programs\MiKTeX\tex/latex/lettrine\lettrine.sty
+File: lettrine.sty 2020-03-14 v2.23 (Daniel Flipo)
+
+(C:\Users\mcaix\AppData\Local\Programs\MiKTeX\tex/generic/minifp\minifp.sty
+Package: minifp 2013/12/30 v0.96. Macros for real number operations and a stack
+-based programing language.
+\MFP@loopctr=\count272
+)
+\c@DefaultLines=\count273
+\c@DefaultDepth=\count274
+\DefaultFindent=\dimen160
+\DefaultNindent=\dimen161
+\DefaultSlope=\dimen162
+\DiscardVskip=\dimen163
+\L@lbox=\box96
+\L@tbox=\box97
+\c@L@lines=\count275
+\c@L@depth=\count276
+\L@Pindent=\dimen164
+\L@Findent=\dimen165
+\L@Nindent=\dimen166
+\L@lraise=\dimen167
+\L@first=\dimen168
+\L@next=\dimen169
+\L@slope=\dimen170
+\L@height=\dimen171
+\L@novskip=\dimen172
+\L@target@ht=\dimen173
+\L@target@dp=\dimen174
+\L@target@tht=\dimen175
+\LettrineWidth=\dimen176
+\LettrineHeight=\dimen177
+\LettrineDepth=\dimen178
+\Llist@everypar=\toks20
+
+Loading lettrine.cfg
+(C:\Users\mcaix\AppData\Local\Programs\MiKTeX\tex/latex/lettrine\lettrine.cfg))
+(C:\Users\mcaix\AppData\Local\Programs\MiKTeX\tex/latex/geometry\geometry.sty
+Package: geometry 2020/01/02 v5.9 Page Geometry
+
+(C:\Users\mcaix\AppData\Local\Programs\MiKTeX\tex/generic/iftex\ifvtex.sty
+Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
+
+(C:\Users\mcaix\AppData\Local\Programs\MiKTeX\tex/generic/iftex\iftex.sty
+Package: iftex 2022/02/03 v1.0f TeX engine tests
+))
+\Gm@cnth=\count277
+\Gm@cntv=\count278
+\c@Gm@tempcnt=\count279
+\Gm@bindingoffset=\dimen179
+\Gm@wd@mp=\dimen180
+\Gm@odd@mp=\dimen181
+\Gm@even@mp=\dimen182
+\Gm@layoutwidth=\dimen183
+\Gm@layoutheight=\dimen184
+\Gm@layouthoffset=\dimen185
+\Gm@layoutvoffset=\dimen186
+\Gm@dimlist=\toks21
+
+(C:\Users\mcaix\AppData\Local\Programs\MiKTeX\tex/latex/geometry\geometry.cfg))
+(C:\Users\mcaix\AppData\Local\Programs\MiKTeX\tex/latex/caption\caption.sty
+Package: caption 2022/03/01 v3.6b Customizing captions (AR)
+
+(C:\Users\mcaix\AppData\Local\Programs\MiKTeX\tex/latex/caption\caption3.sty
+Package: caption3 2022/03/17 v2.3b caption3 kernel (AR)
+\caption@tempdima=\dimen187
+\captionmargin=\dimen188
+\caption@leftmargin=\dimen189
+\caption@rightmargin=\dimen190
+\caption@width=\dimen191
+\caption@indent=\dimen192
+\caption@parindent=\dimen193
+\caption@hangindent=\dimen194
+Package caption Info: Standard document class detected.
+)
+Package caption Info: Option `figurename' requires the `newfloat' package on in
+put line 169.
+
+(C:\Users\mcaix\AppData\Local\Programs\MiKTeX\tex/latex/newfloat\newfloat.sty
+Package: newfloat 2019/09/02 v1.1l Defining new floating environments (AR)
+)
+\c@caption@flags=\count280
+\c@continuedfloat=\count281
+)
+LaTeX Font Info:    Trying to load font information for OT1+ptm on input line 3
+2.
+(C:\Users\mcaix\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\ot1ptm.fd
+File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
+)
+(C:\Users\mcaix\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-pdf
+tex.def
+File: l3backend-pdftex.def 2022-02-07 L3 backend support: PDF output (pdfTeX)
+\l__color_backend_stack_int=\count282
+\l__pdf_internal_box=\box98
+) (TFG-template.aux)
+\openout1 = `TFG-template.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Info: Redefining \l on input line 32.
+LaTeX Info: Redefining \L on input line 32.
+
+(C:\Users\mcaix\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mk
+ii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count283
+\scratchdimen=\dimen195
+\scratchbox=\box99
+\nofMPsegments=\count284
+\nofMParguments=\count285
+\everyMPshowfont=\toks22
+\MPscratchCnt=\count286
+\MPscratchDim=\dimen196
+\MPnumerator=\count287
+\makeMPintoPDFobject=\count288
+\everyMPtoPDFconversion=\toks23
+)
+(C:\Users\mcaix\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstopdf-b
+ase.sty
+Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
+85.
+
+(C:\Users\mcaix\AppData\Local\Programs\MiKTeX\tex/latex/00miktex\epstopdf-sys.c
+fg
+File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
+))
+*geometry* driver: auto-detecting
+*geometry* detected driver: pdftex
+*geometry* verbose mode - [ preamble ] result:
+* driver: pdftex
+* paper: a4paper
+* layout: <same size as paper>
+* layoutoffset:(h,v)=(0.0pt,0.0pt)
+* modes: twoside 
+* h-part:(L,W,R)=(56.9055pt, 483.69687pt, 56.9055pt)
+* v-part:(T,H,B)=(56.9055pt, 745.46222pt, 42.67912pt)
+* \paperwidth=597.50787pt
+* \paperheight=845.04684pt
+* \textwidth=483.69687pt
+* \textheight=745.46222pt
+* \oddsidemargin=-15.36449pt
+* \evensidemargin=-15.36449pt
+* \topmargin=-52.36449pt
+* \headheight=12.0pt
+* \headsep=25.0pt
+* \topskip=10.0pt
+* \footskip=30.0pt
+* \marginparwidth=48.0pt
+* \marginparsep=10.0pt
+* \columnsep=10.0pt
+* \skip\footins=9.0pt plus 4.0pt minus 2.0pt
+* \hoffset=0.0pt
+* \voffset=0.0pt
+* \mag=1000
+* \@twocolumntrue
+* \@twosidetrue
+* \@mparswitchtrue
+* \@reversemarginfalse
+* (1in=72.27pt=25.4mm, 1cm=28.453pt)
+
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: End \AtBeginDocument code.
+LaTeX Font Info:    Trying to load font information for OT1+phv on input line 1
+00.
+(C:\Users\mcaix\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\ot1phv.fd
+File: ot1phv.fd 2020/03/25 scalable font definitions for OT1/phv.
+)
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <12> on input line 100.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <8> on input line 100.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <6> on input line 100.
+
+Underfull \hbox (badness 10000) in paragraph at lines 100--100
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 100--100
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 100--100
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 100--100
+
+ []
+
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 100.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 100.
+LaTeX Font Info:    Trying to load font information for U+pzd on input line 100
+.
+(C:\Users\mcaix\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\upzd.fd
+File: upzd.fd 2001/06/04 font definitions for U/pzd.
+)
+Package lettrine.sty Info: Targeted height = 29.3449pt
+(lettrine.sty)             (for loversize=0, accent excluded),
+(lettrine.sty)             Lettrine height = 29.34491pt (A);
+(lettrine.sty)             reported on input line 109.
+LaTeX Font Info:    Trying to load font information for TS1+ptm on input line 1
+14.
+
+(C:\Users\mcaix\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\ts1ptm.fd
+File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
+)
+[1{C:/Users/mcaix/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}
+
+
+]
+<img/adhoc_dtn.jpg, id=10, 389.95688pt x 245.41687pt>
+File: img/adhoc_dtn.jpg Graphic file (type jpg)
+<use img/adhoc_dtn.jpg>
+Package pdftex.def Info: img/adhoc_dtn.jpg  used on input line 143.
+(pdftex.def)             Requested size: 193.47578pt x 121.7607pt.
+ [2 <./img/adhoc_dtn.jpg>] (TFG-template.aux) ) 
+Here is how much of TeX's memory you used:
+ 5659 strings out of 478582
+ 96669 string characters out of 2844344
+ 429993 words of memory out of 3000000
+ 23774 multiletter control sequences out of 15000+600000
+ 496517 words of font info for 70 fonts, out of 8000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 55i,12n,63p,1588b,326s stack positions out of 10000i,1000n,20000p,200000b,80000s
+{C:/Users/mcaix/AppData/Local/Pr
+ograms/MiKTeX/fonts/enc/dvips/base/8r.enc}<C:/Users/mcaix/AppData/Local/Program
+s/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/mcaix/AppData/Local
+/Programs/MiKTeX/fonts/type1/urw/helvetic/uhvb8a.pfb><C:/Users/mcaix/AppData/Lo
+cal/Programs/MiKTeX/fonts/type1/urw/helvetic/uhvr8a.pfb><C:/Users/mcaix/AppData
+/Local/Programs/MiKTeX/fonts/type1/urw/times/utmb8a.pfb><C:/Users/mcaix/AppData
+/Local/Programs/MiKTeX/fonts/type1/urw/times/utmr8a.pfb><C:/Users/mcaix/AppData
+/Local/Programs/MiKTeX/fonts/type1/urw/times/utmri8a.pfb><C:/Users/mcaix/AppDat
+a/Local/Programs/MiKTeX/fonts/type1/urw/zapfding/uzdr.pfb>
+Output written on TFG-template.pdf (2 pages, 101860 bytes).
+PDF statistics:
+ 46 PDF objects out of 1000 (max. 8388607)
+ 0 named destinations out of 1000 (max. 500000)
+ 6 words of extra memory for PDF output out of 10000 (max. 10000000)
+

@@ -10,20 +10,41 @@ from ml.decision_tree import execute_dtc
 from ml.naive_bayes import execute_nb
 from ml.preprocess_text import preprocess_text, create_tfidf, create_bow
 
-def show_score(y_test, y_pred, title=""):
+def show_score(y_test, y_pred, title="", avg='binary'):
     print("\n", title)
     print("accuracy: ", accuracy_score(y_test, y_pred))
-    print("precission: ", precision_score(y_test, y_pred))
-    print("recall: ", recall_score(y_test, y_pred))
-    print("f1_score: ", f1_score(y_test, y_pred))
+    print("precission: ", precision_score(y_test, y_pred, average=avg))
+    print("recall: ", recall_score(y_test, y_pred, average=avg))
+    print("f1_score: ", f1_score(y_test, y_pred, average=avg))
+
+def read_dataset(name):
+    df = pd.read_csv('../data/'+name)
+    df = df.sample(frac=1)
+    df.columns = df.columns.str.replace(" ", "_")
+
+
+    if name == "tweeter_3.csv":
+        df = df.rename({'message_to_examine': 'message', 'label_(depression_result)': 'label'}, axis=1)
+        return df
+    if name == "reddit_cleaned.csv":
+        df = df.rename({'clean_text': 'message', 'is_depression': 'label'}, axis=1)
+        return df
+    if name == "twitter_13.csv":
+        df = df.rename({'post_text': 'message'}, axis=1)
+        return df
+    if name == "twitter_scale.csv":
+        df = df.rename({'Text': 'message', 'Sentiment': 'label'}, axis=1)
+        return df
+
+
 
 if __name__ == "__main__":
-    df = pd.read_csv('../data/tweeter_3.csv')
-    df = df.sample(frac=1)
-    # print(df.describe())
-    # print(df.info())
-    df.columns = df.columns.str.replace(" ", "_")
-    # df = df.head(100)
+
+
+    df = read_dataset("tweeter_3.csv")
+    # df = read_dataset("reddit_cleaned.csv")
+    # df = read_dataset("twitter_13.csv")
+    # df = read_dataset("twitter_scale.csv")
     df = df[:][:1000]
 
     df = preprocess_text(df)
@@ -31,9 +52,9 @@ if __name__ == "__main__":
     tfidf = create_tfidf(df)
     bow = create_bow(df)
 
-    X_train_tfidf, X_test_tfidf, y_train_tfidf, y_test_tfidf = train_test_split(tfidf, df['label_(depression_result)'],
+    X_train_tfidf, X_test_tfidf, y_train_tfidf, y_test_tfidf = train_test_split(tfidf, df['label'],
                                                                                 test_size=0.2, random_state=10)
-    X_train_bow, X_test_bow, y_train_bow, y_test_bow = train_test_split(bow, df['label_(depression_result)'],
+    X_train_bow, X_test_bow, y_train_bow, y_test_bow = train_test_split(bow, df['label'],
                                                                         test_size=0.2, random_state=10)
 
 

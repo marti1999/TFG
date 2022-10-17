@@ -28,7 +28,7 @@ def remove_stopword_punctuation(line):
 
 
 def preprocess_text(df):
-    df['processed'] = df['message_to_examine'].apply(remove_stopword_punctuation)  # preprocess text
+    df['processed'] = df['message'].apply(remove_stopword_punctuation)  # preprocess text
     df['processed'] = df.processed.str.replace(r"[0-9]", "")  # remove numbers
     return df
 

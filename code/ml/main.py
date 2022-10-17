@@ -1,21 +1,26 @@
+# from line_profile_pycharm import profile
+
 import pandas as pd
 
 from sklearn.model_selection import train_test_split
 from sklearn.naive_bayes import MultinomialNB
 from sklearn.tree import DecisionTreeClassifier
 
-from sklearn.metrics import classification_report, accuracy_score, f1_score, precision_score, recall_score
-
-from ml.decision_tree import execute_dtc
-from ml.naive_bayes import execute_nb
+from sklearn.metrics import classification_report, accuracy_score, f1_score, precision_score, recall_score, \
+    mean_squared_error
+from ml.ml_models import execute_nb, execute_dtc, execute_rf, execute_svm
 from ml.preprocess_text import preprocess_text, create_tfidf, create_bow
+
 
 def show_score(y_test, y_pred, title="", avg='binary'):
     print("\n", title)
-    print("accuracy: ", accuracy_score(y_test, y_pred))
-    print("precission: ", precision_score(y_test, y_pred, average=avg))
-    print("recall: ", recall_score(y_test, y_pred, average=avg))
-    print("f1_score: ", f1_score(y_test, y_pred, average=avg))
+    if avg == 'mse':
+        print("mean error (no squared): ", mean_squared_error(y_test, y_pred, squared=False))
+    else:
+        print("accuracy: ", accuracy_score(y_test, y_pred))
+        print("precission: ", precision_score(y_test, y_pred, average=avg))
+        print("recall: ", recall_score(y_test, y_pred, average=avg))
+        print("f1_score: ", f1_score(y_test, y_pred, average=avg))
 
 def read_dataset(name):
     df = pd.read_csv('../data/'+name)
@@ -41,11 +46,11 @@ def read_dataset(name):
 if __name__ == "__main__":
 
 
-    df = read_dataset("tweeter_3.csv")
+    # df = read_dataset("tweeter_3.csv")
     # df = read_dataset("reddit_cleaned.csv")
     # df = read_dataset("twitter_13.csv")
-    # df = read_dataset("twitter_scale.csv")
-    df = df[:][:1000]
+    df = read_dataset("twitter_scale.csv")
+    df = df[:][:2000]
 
     df = preprocess_text(df)
 
@@ -67,5 +72,15 @@ if __name__ == "__main__":
     show_score(y_test_tfidf, y_pred, "DT tfidf")
     y_pred = execute_dtc(X_train_bow, y_train_bow, X_test_bow)
     show_score(y_test_bow, y_pred, "DT bow")
+
+    y_pred = execute_rf(X_train_tfidf, y_train_tfidf, X_test_tfidf)
+    show_score(y_test_tfidf, y_pred, "RF tfidf")
+    y_pred = execute_rf(X_train_bow, y_train_bow, X_test_bow)
+    show_score(y_test_bow, y_pred, "RF bow")
+
+    y_pred = execute_svm(X_train_tfidf, y_train_tfidf, X_test_tfidf)
+    show_score(y_test_tfidf, y_pred, "SVM tfidf")
+    y_pred = execute_svm(X_train_bow, y_train_bow, X_test_bow)
+    show_score(y_test_bow, y_pred, "SVM bow")
 
 

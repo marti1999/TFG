@@ -1,4 +1,7 @@
+import re
+
 import nltk
+import numpy as np
 from nltk.stem.wordnet import WordNetLemmatizer
 import spacy
 import pandas as pd
@@ -26,10 +29,19 @@ def remove_stopword_punctuation(line):
 
     return " ".join(line)
 
+def remove_usernames(line, pattern):
+    r = re.findall(pattern, line)
+
+    for i in r:
+        line = re.sub(i, "", line)
+
+    return line
 
 def preprocess_text(df):
-    df['processed'] = df['message'].apply(remove_stopword_punctuation)  # preprocess text
+    df['processed'] = np.vectorize(remove_usernames)(df['message'], "@[\w]*")
+    df['processed'] = df['processed'].apply(remove_stopword_punctuation)  # preprocess text
     df['processed'] = df.processed.str.replace(r"[0-9]", "")  # remove numbers
+    df['processed'] = df.processed.str.replace("[^a-zA-Z#]", " ")  # remove numbers
     return df
 
 

@@ -1,0 +1,3 @@
+modificar planificació amb noves tasques i tal
+mètriques multi-classe que realment és una escala (depressió del 1 al 4, sent 1 poca i 4 molta). mse?
+planificació com la veu

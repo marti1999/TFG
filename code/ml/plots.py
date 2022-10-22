@@ -48,8 +48,8 @@ def bar_plot_multiple_column(models, type1, type2, type1desc, type2desc, file_na
     plt.show()
 
 
-def save_results_to_csv(model_name, params, dataset_name, type, average, acc, prec, recall, f1):
-    row = [model_name, params, dataset_name, type, average, str(acc), str(prec), str(recall), str(f1)]
+def save_results_to_csv(model_name, params, dataset_name, type, average, acc, prec, recall, f1, seconds):
+    row = [model_name, params, dataset_name, type, average, str(acc), str(prec), str(recall), str(f1), str(seconds)]
 
     with open(r'../results/results.csv', 'a', newline='') as fd:
         write = csv.writer(fd, delimiter=';')

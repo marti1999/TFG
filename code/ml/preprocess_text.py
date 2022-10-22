@@ -45,14 +45,14 @@ def preprocess_text(df):
     return df
 
 
-def create_tfidf(df):
-    vectorizer = TfidfVectorizer()
+def create_tfidf(df, max_features=None):
+    vectorizer = TfidfVectorizer(max_features=max_features)
     processed = vectorizer.fit_transform(df['processed'].values.astype('U'))
     return processed
 
 
-def create_bow(df):
-    bow_vectorizer = CountVectorizer()
+def create_bow(df, max_features=None):
+    bow_vectorizer = CountVectorizer(max_features=max_features)
     bow = bow_vectorizer.fit_transform(df['processed'].values.astype('U'))
     df_bow = pd.DataFrame(bow.todense())
     return df_bow

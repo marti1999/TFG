@@ -10,7 +10,7 @@ from sklearn.metrics import classification_report, accuracy_score, f1_score, pre
     mean_squared_error
 from ml.ml_models import execute_nb, execute_dtc, execute_rf, execute_svm, execute_knn
 from ml.plots import bar_plot_multiple_column
-from ml.preprocess_text import preprocess_text, create_tfidf, create_bow
+from ml.preprocess_text import preprocess_text, create_tfidf, create_bow, save_df_to_csv
 
 
 class Metrics:
@@ -60,16 +60,18 @@ def read_dataset(name):
         df = df.rename({'Text': 'message', 'Sentiment': 'label'}, axis=1)
         return df
 
+    return df
+
 
 if __name__ == "__main__":
-    # df = read_dataset("tweeter_3.csv")
-    df = read_dataset("reddit_cleaned.csv")
-    # df = read_dataset("twitter_13.csv")
-    # df = read_dataset("twitter_scale.csv")
+    df = read_dataset("clean_tweeter_3.csv")
+    # df = read_dataset("clean_reddit_cleaned.csv")
+    # df = read_dataset("clean_twitter_13.csv")
+    # df = read_dataset("clean_twitter_scale.csv")
     # df = df[:][:100]
 
-    df = preprocess_text(df)
-
+    # df = preprocess_text(df)
+    # save_df_to_csv(df, '../data/clean_twitter_scale.csv')
     tfidf = create_tfidf(df)
     bow = create_bow(df)
 

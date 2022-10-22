@@ -47,12 +47,15 @@ def preprocess_text(df):
 
 def create_tfidf(df):
     vectorizer = TfidfVectorizer()
-    processed = vectorizer.fit_transform(df['processed'])
+    processed = vectorizer.fit_transform(df['processed'].values.astype('U'))
     return processed
 
 
 def create_bow(df):
     bow_vectorizer = CountVectorizer()
-    bow = bow_vectorizer.fit_transform(df['processed'])
+    bow = bow_vectorizer.fit_transform(df['processed'].values.astype('U'))
     df_bow = pd.DataFrame(bow.todense())
     return df_bow
+
+def save_df_to_csv(df, file_name):
+    df.to_csv(file_name)

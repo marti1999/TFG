@@ -1,0 +1,8 @@
+predict proba --> veure la distribució de confiança en les les prediccions
+explicar més bé tfidf (fòrmules)
+comparar resultats de predicicó entre train i test
+eliminar dataset que no funciona. Buscar-ne d'altres.
+buscar una tipololgia d'usuari un cop es trobin els tweets (crawler hashtags)
+hyperparameter search optuna
+
+comencar amb bert, després gpt

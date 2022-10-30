@@ -7,9 +7,10 @@ import sklearn.svm
 
 
 class Objective(object):
-    def __init__(self, x, y):
+    def __init__(self, x, y, average='macro'):
         self.X = x
         self.y = y
+        self.score = average
 
     def __call__(self, trial):
         x, y = self.X, self.y
@@ -36,5 +37,6 @@ class Objective(object):
                 min_samples_leaf=rf_min_samples_leaf, min_samples_split=rf_min_samples_split
             )
 
-        score = sklearn.model_selection.cross_val_score(classifier_obj, x, y, n_jobs=-1, cv=5, scoring="recall")
+        score = sklearn.model_selection.cross_val_score(classifier_obj, x, y, n_jobs=-1, cv=5,
+                                                        scoring="recall_" + self.score)
         return score.mean()

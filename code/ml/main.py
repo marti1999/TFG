@@ -10,7 +10,7 @@ from sklearn.tree import DecisionTreeClassifier
 from sklearn.metrics import classification_report, accuracy_score, f1_score, precision_score, recall_score, \
     mean_squared_error
 from ml.ml_models import execute_nb, execute_dtc, execute_rf, execute_svm, execute_knn
-from ml.plots import bar_plot_multiple_column, save_results_to_csv
+from ml.plots import bar_plot_multiple_column, save_results_to_csv, parse_optuna_trials, Results
 from ml.preprocess_text import preprocess_text, create_tfidf, create_bow, save_df_to_csv
 from ml.hyperparamter_search import Objective
 
@@ -26,24 +26,27 @@ class Metrics:
 
 def show_score(y_test, y_pred, metric_list, title="", avg='binary', model_name='', params='', dataset_name='', type='',
                seconds=0):
+    results = Results(model_name=model_name, params=params, dataset_name=dataset_name, type=type, average=avg,
+                      seconds=seconds)
+
     print(f"\n{title}: {seconds:.03f} seconds")
     if avg == 'mse':
         print("mean error (no squared): ", mean_squared_error(y_test, y_pred, squared=False))
     else:
-        acc = accuracy_score(y_test, y_pred)
-        prec = precision_score(y_test, y_pred)
-        recall = recall_score(y_test, y_pred)
-        f1 = f1_score(y_test, y_pred)
+        results.acc = accuracy_score(y_test, y_pred)
+        results.prec = precision_score(y_test, y_pred)
+        results.recall = recall_score(y_test, y_pred)
+        results.f1 = f1_score(y_test, y_pred)
 
-        metric_list.acc.append(acc)
-        metric_list.prec.append(prec)
-        metric_list.recall.append(recall)
-        metric_list.f1.append(f1)
-        print("accuracy: ", acc)
-        print("precission: ", prec)
-        print("recall: ", recall)
-        print("f1_score: ", f1)
-        save_results_to_csv(model_name, params, dataset_name, type, avg, acc, prec, recall, f1, seconds)
+        metric_list.acc.append(results.acc)
+        metric_list.prec.append(results.prec)
+        metric_list.recall.append(results.recall)
+        metric_list.f1.append(results.f1)
+        print("accuracy: ", results.acc)
+        print("precission: ", results.prec)
+        print("recall: ", results.recall)
+        print("f1_score: ", results.f1)
+        save_results_to_csv(results)
 
 
 def read_dataset(name):
@@ -121,19 +124,23 @@ def single_model_execution():
                              'tfidf max_features=' + str(max_features),
                              file_name + "_max_features=" + str(max_features) + "_average=" + metrics_average)
 
-def hyperparameter_search(x, y):
-    objective = Objective(x, y)
+
+def hyperparameter_search(x, y, type='bow'):
+    objective = Objective(x, y, average="macro")
     study = optuna.create_study(direction="maximize")
-    study.optimize(objective, n_trials=5, n_jobs=-1)
-    all = study.trials
+    study.optimize(objective, n_trials=50, n_jobs=-1)
     print(study.best_trial)
+    trials = study.trials
+    results_list = parse_optuna_trials(trials, file_name, type, "macro")
+    for r in results_list:
+        save_results_to_csv(r)
 
 
 if __name__ == "__main__":
-    # file_name = "clean_tweeter_3"
+    file_name = "clean_tweeter_3"
     # file_name = "clean_reddit_cleaned"
     # file_name = "clean_twitter_13"
-    file_name = "clean_twitter_scale"
+    # file_name = "clean_twitter_scale"
 
     df = read_dataset(file_name)
     # df = read_dataset(file_name)
@@ -152,4 +159,4 @@ if __name__ == "__main__":
     bow = create_bow(df, max_features=max_features)
 
     # single_model_execution()
-    hyperparameter_search(bow, df['label'])
+    hyperparameter_search(bow, df['label'], type='bow' + " max_features=" + str(max_features))

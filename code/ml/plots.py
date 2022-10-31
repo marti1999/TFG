@@ -1,4 +1,5 @@
 import copy
+from datetime import datetime
 
 import numpy as np
 import matplotlib.pyplot as plt
@@ -8,7 +9,7 @@ import json
 
 class Results:
     def __init__(self, model_name=None, params=None, dataset_name=None, type=None, average=None, acc=None, prec=None,
-                 recall=None, f1=None, seconds=None, hyperparameter_search=False):
+                 recall=None, f1=None, seconds=None, hyperparameter_search=False, datetime=None):
         self.model_name = model_name
         self.params = params
         self.dataset_name = dataset_name
@@ -20,10 +21,11 @@ class Results:
         self.f1 = f1
         self.seconds = seconds
         self.hyperparameter_search = hyperparameter_search
+        self.datetime = datetime
 
     def get_csv_row(self):
         return [self.model_name, self.params, self.dataset_name, self.type, self.average, str(self.acc), str(self.prec),
-                str(self.recall), str(self.f1), str(self.seconds), str(self.hyperparameter_search)]
+                str(self.recall), str(self.f1), str(self.seconds), str(self.hyperparameter_search), str(self.datetime)]
 
 
 def bar_plot_multiple_column(models, type1, type2, type1desc, type2desc, file_name):
@@ -85,6 +87,7 @@ def parse_optuna_trials(trials, file_name, type, scoring):
         r.f1 = trial.value
         r.seconds = trial.duration.total_seconds()
         r.hyperparameter_search = True
+        r.datetime = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
         results_list.append(r)
     return results_list
 

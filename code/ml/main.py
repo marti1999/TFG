@@ -6,6 +6,7 @@ from pandas_profiling import ProfileReport
 from sklearn.model_selection import train_test_split
 from sklearn.naive_bayes import MultinomialNB
 from sklearn.tree import DecisionTreeClassifier
+from datetime import datetime
 
 from sklearn.metrics import classification_report, accuracy_score, f1_score, precision_score, recall_score, \
     mean_squared_error
@@ -37,6 +38,7 @@ def show_score(y_test, y_pred, metric_list, title="", avg='binary', model_name='
         results.prec = precision_score(y_test, y_pred)
         results.recall = recall_score(y_test, y_pred)
         results.f1 = f1_score(y_test, y_pred)
+        results.datetime = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 
         metric_list.acc.append(results.acc)
         metric_list.prec.append(results.prec)
@@ -126,19 +128,20 @@ def single_model_execution():
 
 
 def hyperparameter_search(x, y, type='bow'):
-    objective = Objective(x, y, average="macro")
+    objective = Objective(x, y, average=metrics_average)
     study = optuna.create_study(direction="maximize")
-    study.optimize(objective, n_trials=50, n_jobs=-1)
+    optuna.logging.set_verbosity(optuna.logging.DEBUG)
+    study.optimize(objective, n_trials=100, n_jobs=-1)
     print(study.best_trial)
     trials = study.trials
-    results_list = parse_optuna_trials(trials, file_name, type, "macro")
+    results_list = parse_optuna_trials(trials, file_name, type, metrics_average)
     for r in results_list:
         save_results_to_csv(r)
 
 
 if __name__ == "__main__":
-    file_name = "clean_tweeter_3"
-    # file_name = "clean_reddit_cleaned"
+    # file_name = "clean_tweeter_3"
+    file_name = "clean_reddit_cleaned"
     # file_name = "clean_twitter_13"
     # file_name = "clean_twitter_scale"
 

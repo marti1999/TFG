@@ -18,10 +18,10 @@ class Objective(object):
     def __call__(self, trial):
         x, y = self.X, self.y
 
-        # classifier_name = trial.suggest_categorical("classifier", ["NB", "RF"])
-        classifier_name = trial.suggest_categorical("classifier", ["NB", "RF", "DTC", "KNN"])
+        classifier_name = trial.suggest_categorical("classifier", ["SVM"])
+        # classifier_name = trial.suggest_categorical("classifier", ["NB", "RF", "DTC", "KNN", "SVM"])
         if classifier_name == "NB":
-            nb_alpha = trial.suggest_float("nb_alpha", 0.00001, 1000, log=True)
+            nb_alpha = trial.suggest_float("nb_alpha", 0.001, 100, log=True)
             classifier_obj = MultinomialNB(alpha=nb_alpha)
 
         if classifier_name == "RF":
@@ -32,8 +32,8 @@ class Objective(object):
             #     "min_samples_split": trial.suggest_int("rf_min_samples_split", 2, 10, log=False)
             # }
 
-            rf_max_depth = trial.suggest_int("rf_max_depth", 5, 100, log=True)
-            rf_n_estimators = trial.suggest_int("rf_n_estimators", 5, 30, log=True)
+            rf_max_depth = trial.suggest_int("rf_max_depth", 5, 100, log=False)
+            rf_n_estimators = trial.suggest_int("rf_n_estimators", 5, 30, log=False)
             rf_min_samples_leaf = trial.suggest_int("rf_min_samples_leaf", 1, 5, log=False)
             rf_min_samples_split = trial.suggest_int("rf_min_samples_split", 2, 10, log=False)
             classifier_obj = RandomForestClassifier(
@@ -42,7 +42,7 @@ class Objective(object):
             )
 
         if classifier_name == "DTC":
-            dtc_max_depth = trial.suggest_int("dtc_max_depth", 5, 100, log=True)
+            dtc_max_depth = trial.suggest_int("dtc_max_depth", 5, 100, log=False)
             dtc_min_samples_leaf = trial.suggest_int("dtc_min_samples_leaf", 1, 50, log=False)
             dtc_criterion = trial.suggest_categorical("dtc_criterion", ["gini", "entropy"])
             dtc_min_samples_split = trial.suggest_int("dtc_min_samples_split", 2, 30, log=False)
@@ -53,8 +53,8 @@ class Objective(object):
 
         if classifier_name == "SVM":
             svc_kernel = trial.suggest_categorical("svc_kernel", ["linear", "poly", "rbf"])
-            svc_gamma = trial.suggest_float("svc_gamma", 0.001, 100, log=True)
-            svc_c = trial.suggest_float("svc_c", 0.01, 1000, log=True)
+            svc_gamma = trial.suggest_float("svc_gamma", 0.01, 100, log=True)
+            svc_c = trial.suggest_float("svc_c", 0.01, 100, log=True)
             svc_degree = trial.suggest_int("svc_degree", 1, 5, log=False)
             classifier_obj = svm.SVC(
                 kernel=svc_kernel, gamma=svc_gamma, C=svc_c, degree=svc_degree

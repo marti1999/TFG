@@ -11,7 +11,8 @@ from datetime import datetime
 from sklearn.metrics import classification_report, accuracy_score, f1_score, precision_score, recall_score, \
     mean_squared_error
 from ml.ml_models import execute_nb, execute_dtc, execute_rf, execute_svm, execute_knn
-from ml.plots import bar_plot_multiple_column, save_results_to_csv, parse_optuna_trials, Results
+from ml.plots import bar_plot_multiple_column, save_results_to_csv, parse_optuna_trials, Results, \
+    plot_optuna_metric_histogram
 from ml.preprocess_text import preprocess_text, create_tfidf, create_bow, save_df_to_csv
 from ml.hyperparamter_search import Objective
 
@@ -127,12 +128,16 @@ def single_model_execution():
                              file_name + "_max_features=" + str(max_features) + "_average=" + metrics_average)
 
 
-def hyperparameter_search(x, y, type='bow'):
+def hyperparameter_search(x, y, type="bow"):
     objective = Objective(x, y, average=metrics_average)
     study = optuna.create_study(direction="maximize")
-    optuna.logging.set_verbosity(optuna.logging.DEBUG)
     study.optimize(objective, n_trials=100, n_jobs=-1)
     print(study.best_trial)
+
+    # fig = optuna.visualization.plot_param_importances(study)
+    # fig.show()
+    # plot_optuna_metric_histogram(study, file_name, type)
+
     trials = study.trials
     results_list = parse_optuna_trials(trials, file_name, type, metrics_average)
     for r in results_list:
@@ -141,15 +146,15 @@ def hyperparameter_search(x, y, type='bow'):
 
 if __name__ == "__main__":
     # file_name = "clean_tweeter_3"
-    file_name = "clean_reddit_cleaned"
+    # file_name = "clean_reddit_cleaned"
     # file_name = "clean_twitter_13"
-    # file_name = "clean_twitter_scale"
+    file_name = "clean_twitter_scale"
 
     df = read_dataset(file_name)
     # df = read_dataset(file_name)
     # df = read_dataset(file_name)
     # df = read_dataset(file_name)
-    # df = df[:][:300]
+    df = df[:][:5000]
 
     # rp = ProfileReport(df)
     # rp.to_file(output_file="../results/eda/" + file_name + ".html")
@@ -162,4 +167,4 @@ if __name__ == "__main__":
     bow = create_bow(df, max_features=max_features)
 
     # single_model_execution()
-    hyperparameter_search(bow, df['label'], type='bow' + " max_features=" + str(max_features))
+    hyperparameter_search(tfidf, df['label'], type='tfidf' + " max_features=" + str(max_features))

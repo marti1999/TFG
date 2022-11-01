@@ -6,6 +6,8 @@ import matplotlib.pyplot as plt
 import csv
 import json
 
+import optuna.visualization
+
 
 class Results:
     def __init__(self, model_name=None, params=None, dataset_name=None, type=None, average=None, acc=None, prec=None,
@@ -70,6 +72,20 @@ def bar_plot_multiple_column(models, type1, type2, type1desc, type2desc, file_na
     plt.ylim([0, 1.2])
 
     plt.savefig("../results/figures/" + file_name + ".png")
+    plt.show()
+
+
+def plot_optuna_metric_histogram(study, dataset, type):
+    metric_list = []
+    for t in study.trials:
+        metric_list.append(t.value)
+    plt.hist(metric_list, bins=20, range=[0, 1])
+    plt.title("Hyperparameter search results: " + study.best_params['classifier'])
+    plt.ylabel("Count")
+    plt.xlabel("Recall (macro)")
+    plt.savefig(
+        "../results/figures/optuna_tests/" + dataset + "_" + type + "_histogram_" + study.best_params[
+            'classifier'] + ".png")
     plt.show()
 
 

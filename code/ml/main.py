@@ -12,7 +12,7 @@ from sklearn.metrics import classification_report, accuracy_score, f1_score, pre
     mean_squared_error
 from ml.ml_models import execute_nb, execute_dtc, execute_rf, execute_svm, execute_knn
 from ml.plots import bar_plot_multiple_column, save_results_to_csv, parse_optuna_trials, Results, \
-    plot_optuna_metric_histogram
+    plot_optuna_metric_histogram, plot_proba_histogram
 from ml.preprocess_text import preprocess_text, create_tfidf, create_bow, save_df_to_csv
 from ml.hyperparamter_search import Objective
 
@@ -26,7 +26,7 @@ class Metrics:
         self.f1 = []
 
 
-def show_score(y_test, y_pred, metric_list, title="", avg='binary', model_name='', params='', dataset_name='', type='',
+def show_score(y_test, y_pred, proba, metric_list, title="", avg='binary', model_name='', params='', dataset_name='', type='',
                seconds=0):
     results = Results(model_name=model_name, params=params, dataset_name=dataset_name, type=type, average=avg,
                       seconds=seconds)
@@ -49,7 +49,8 @@ def show_score(y_test, y_pred, metric_list, title="", avg='binary', model_name='
         print("precission: ", results.prec)
         print("recall: ", results.recall)
         print("f1_score: ", results.f1)
-        save_results_to_csv(results)
+        plot_proba_histogram(proba, dataset=dataset_name, type=type, model=model_name)
+        # save_results_to_csv(results)
 
 
 def read_dataset(name):
@@ -83,46 +84,52 @@ def single_model_execution():
     models = ['NB', 'DT', 'RF', 'SVM', 'KNN']
     bow_score = Metrics()
     tfidf_score = Metrics()
-    y_pred, params, elapsed = execute_nb(X_train_tfidf, y_train_tfidf, X_test_tfidf)
-    show_score(y_test_tfidf, y_pred, title="NB tfidf", metric_list=tfidf_score, model_name='NB', params=params,
+
+    y_pred, params, elapsed, proba = execute_nb(X_train_tfidf, y_train_tfidf, X_test_tfidf)
+    show_score(y_test_tfidf, y_pred, proba, title="NB tfidf", metric_list=tfidf_score, model_name='NB', params=params,
                dataset_name=file_name, type='tfidf max_features=' + str(max_features), seconds=elapsed,
                avg=metrics_average)
-    y_pred, params, elapsed = execute_nb(X_train_bow, y_train_bow, X_test_bow)
-    show_score(y_test_bow, y_pred, title="NB bow", metric_list=bow_score, model_name='NB', params=params,
+    y_pred, params, elapsed, proba = execute_nb(X_train_bow, y_train_bow, X_test_bow)
+    show_score(y_test_bow, y_pred, proba, title="NB bow", metric_list=bow_score, model_name='NB', params=params,
                dataset_name=file_name, type='bow max_features=' + str(max_features), seconds=elapsed,
                avg=metrics_average)
-    y_pred, params, elapsed = execute_dtc(X_train_tfidf, y_train_tfidf, X_test_tfidf)
-    show_score(y_test_tfidf, y_pred, title="DT tfidf", metric_list=tfidf_score, model_name='DT', params=params,
+
+    y_pred, params, elapsed, proba = execute_dtc(X_train_tfidf, y_train_tfidf, X_test_tfidf)
+    show_score(y_test_tfidf, y_pred, proba, title="DT tfidf", metric_list=tfidf_score, model_name='DT', params=params,
                dataset_name=file_name, type='tfidf max_features=' + str(max_features), seconds=elapsed,
                avg=metrics_average)
-    y_pred, params, elapsed = execute_dtc(X_train_bow, y_train_bow, X_test_bow)
-    show_score(y_test_bow, y_pred, title="DT bow", metric_list=bow_score, model_name='DT', params=params,
+    y_pred, params, elapsed, proba = execute_dtc(X_train_bow, y_train_bow, X_test_bow)
+    show_score(y_test_bow, y_pred, proba, title="DT bow", metric_list=bow_score, model_name='DT', params=params,
                dataset_name=file_name, type='bow max_features=' + str(max_features), seconds=elapsed,
                avg=metrics_average)
-    y_pred, params, elapsed = execute_rf(X_train_tfidf, y_train_tfidf, X_test_tfidf)
-    show_score(y_test_tfidf, y_pred, title="RF tfidf", metric_list=tfidf_score, model_name='RF', params=params,
+
+    y_pred, params, elapsed, proba = execute_rf(X_train_tfidf, y_train_tfidf, X_test_tfidf)
+    show_score(y_test_tfidf, y_pred, proba, title="RF tfidf", metric_list=tfidf_score, model_name='RF', params=params,
                dataset_name=file_name, type='tfidf max_features=' + str(max_features), seconds=elapsed,
                avg=metrics_average)
-    y_pred, params, elapsed = execute_rf(X_train_bow, y_train_bow, X_test_bow)
-    show_score(y_test_bow, y_pred, title="RF bow", metric_list=bow_score, model_name='RF', params=params,
+    y_pred, params, elapsed, proba = execute_rf(X_train_bow, y_train_bow, X_test_bow)
+    show_score(y_test_bow, y_pred, proba, title="RF bow", metric_list=bow_score, model_name='RF', params=params,
                dataset_name=file_name, type='bow max_features=' + str(max_features), seconds=elapsed,
                avg=metrics_average)
-    y_pred, params, elapsed = execute_svm(X_train_tfidf, y_train_tfidf, X_test_tfidf)
-    show_score(y_test_tfidf, y_pred, title="SVM tfidf", metric_list=tfidf_score, model_name='SVM', params=params,
+
+    y_pred, params, elapsed, proba = execute_svm(X_train_tfidf, y_train_tfidf, X_test_tfidf)
+    show_score(y_test_tfidf, y_pred, proba, title="SVM tfidf", metric_list=tfidf_score, model_name='SVM', params=params,
                dataset_name=file_name, type='tfidf max_features=' + str(max_features), seconds=elapsed,
                avg=metrics_average)
-    y_pred, params, elapsed = execute_svm(X_train_bow, y_train_bow, X_test_bow)
-    show_score(y_test_bow, y_pred, title="SVM bow", metric_list=bow_score, model_name='SVM', params=params,
+    y_pred, params, elapsed, proba = execute_svm(X_train_bow, y_train_bow, X_test_bow)
+    show_score(y_test_bow, y_pred, proba, title="SVM bow", metric_list=bow_score, model_name='SVM', params=params,
                dataset_name=file_name, type='bow max_features=' + str(max_features), seconds=elapsed,
                avg=metrics_average)
-    y_pred, params, elapsed = execute_knn(X_train_tfidf, y_train_tfidf, X_test_tfidf)
-    show_score(y_test_tfidf, y_pred, title="KNN tfidf", metric_list=tfidf_score, model_name='KNN', params=params,
+
+    y_pred, params, elapsed, proba = execute_knn(X_train_tfidf, y_train_tfidf, X_test_tfidf)
+    show_score(y_test_tfidf, y_pred, proba, title="KNN tfidf", metric_list=tfidf_score, model_name='KNN', params=params,
                dataset_name=file_name, type='tfidf max_features=' + str(max_features), seconds=elapsed,
                avg=metrics_average)
-    y_pred, params, elapsed = execute_knn(X_train_bow, y_train_bow, X_test_bow)
-    show_score(y_test_bow, y_pred, title="KNN bow", metric_list=bow_score, model_name='KNN', params=params,
+    y_pred, params, elapsed, proba = execute_knn(X_train_bow, y_train_bow, X_test_bow)
+    show_score(y_test_bow, y_pred, proba, title="KNN bow", metric_list=bow_score, model_name='KNN', params=params,
                dataset_name=file_name, type='bow max_features=' + str(max_features), seconds=elapsed,
                avg=metrics_average)
+
     bar_plot_multiple_column(models, bow_score, tfidf_score, "bow max_features=" + str(max_features),
                              'tfidf max_features=' + str(max_features),
                              file_name + "_max_features=" + str(max_features) + "_average=" + metrics_average)
@@ -166,5 +173,5 @@ if __name__ == "__main__":
     tfidf = create_tfidf(df, max_features=max_features)
     bow = create_bow(df, max_features=max_features)
 
-    # single_model_execution()
-    hyperparameter_search(tfidf, df['label'], type='tfidf' + " max_features=" + str(max_features))
+    single_model_execution()
+    # hyperparameter_search(tfidf, df['label'], type='tfidf' + " max_features=" + str(max_features))

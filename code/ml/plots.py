@@ -1,6 +1,6 @@
 import copy
 from datetime import datetime
-
+import seaborn as sns
 import numpy as np
 import matplotlib.pyplot as plt
 import csv
@@ -71,9 +71,23 @@ def bar_plot_multiple_column(models, type1, type2, type1desc, type2desc, file_na
     plt.title('F1 Score')
     plt.ylim([0, 1.2])
 
-    plt.savefig("../results/figures/" + file_name + ".png")
+    plt.savefig("../results/figures/single_tests/" + file_name + ".png")
     plt.show()
 
+def plot_proba_histogram(proba, dataset=None, type=None, model=None):
+    # plt.hist(proba, bins=10, range=[0.5, 1])
+    # plt.title(model)
+    # plt.ylabel("Count")
+    # plt.xlabel("Prediction probability")
+    # plt.savefig("../results/figures/proba/"+ dataset + "_"+type+"_"+model+".png")
+
+    sns.histplot(data=proba, bins=10, binrange=[0.5, 1], stat="percent")
+    plt.ylim(0, 110)
+    plt.title(model + " "+type)
+    plt.ylabel("Count")
+    plt.xlabel("Prediction probability")
+    plt.savefig("../results/figures/proba/" + dataset + "_" + type + "_" + model + ".png")
+    plt.clf()
 
 def plot_optuna_metric_histogram(study, dataset, type):
     metric_list = []

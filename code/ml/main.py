@@ -153,9 +153,9 @@ def hyperparameter_search(x, y, type="bow"):
 
 if __name__ == "__main__":
     # file_name = "clean_tweeter_3"
-    # file_name = "clean_reddit_cleaned"
+    file_name = "clean_reddit_cleaned"
     # file_name = "clean_twitter_13"
-    file_name = "clean_twitter_scale"
+    # file_name = "clean_twitter_scale"
 
     df = read_dataset(file_name)
     # df = read_dataset(file_name)

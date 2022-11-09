@@ -20,9 +20,9 @@ def execute_nb(X_train, y_train, X_test):
     nb.fit(X_train, y_train)
     y_pred = nb.predict(X_test)
     elapsed = time.perf_counter() - start
-    y_pred_proba = nb.predict_proba(X_test)
-    proba = np.amax(y_pred_proba, axis=1)
-    return y_pred, get_params_string(nb), elapsed, proba
+    y_pred_proba = nb.predict_proba(X_test)[:,1]
+    # # proba = np.amax(y_pred_proba, axis=1)
+    return y_pred, get_params_string(nb), elapsed, y_pred_proba
 
 
 def execute_dtc(X_train, y_train, X_test):
@@ -31,9 +31,9 @@ def execute_dtc(X_train, y_train, X_test):
     dtc.fit(X_train, y_train)
     y_pred = dtc.predict(X_test)
     elapsed = time.perf_counter() - start
-    y_pred_proba = dtc.predict_proba(X_test)
-    proba = np.amax(y_pred_proba, axis=1)
-    return y_pred, get_params_string(dtc), elapsed, proba
+    y_pred_proba = dtc.predict_proba(X_test)[:,1]
+    # proba = np.amax(y_pred_proba, axis=1)
+    return y_pred, get_params_string(dtc), elapsed, y_pred_proba
 
 
 def execute_rf(X_train, y_train, X_test):
@@ -42,9 +42,9 @@ def execute_rf(X_train, y_train, X_test):
     rf.fit(X_train, y_train)
     y_pred = rf.predict(X_test)
     elapsed = time.perf_counter() - start
-    y_pred_proba = rf.predict_proba(X_test)
-    proba = np.amax(y_pred_proba, axis=1)
-    return y_pred, get_params_string(rf), elapsed, proba
+    y_pred_proba = rf.predict_proba(X_test)[:,1]
+    # proba = np.amax(y_pred_proba, axis=1)
+    return y_pred, get_params_string(rf), elapsed, y_pred_proba
 
 
 def execute_svm(X_train, y_train, X_test):
@@ -53,9 +53,9 @@ def execute_svm(X_train, y_train, X_test):
     cls.fit(X_train, y_train)
     y_pred = cls.predict(X_test)
     elapsed = time.perf_counter() - start
-    y_pred_proba = cls.predict_proba(X_test)
-    proba = np.amax(y_pred_proba, axis=1)
-    return y_pred, get_params_string(cls), elapsed, proba
+    y_pred_proba = cls.predict_proba(X_test)[:,1]
+    # proba = np.amax(y_pred_proba, axis=1)
+    return y_pred, get_params_string(cls), elapsed, y_pred_proba
 
 
 def execute_knn(X_train, y_train, X_test):
@@ -64,6 +64,6 @@ def execute_knn(X_train, y_train, X_test):
     knn.fit(X_train, y_train)
     y_pred = knn.predict(X_test)
     elapsed = time.perf_counter() - start
-    y_pred_proba = knn.predict_proba(X_test)
-    proba = np.amax(y_pred_proba, axis=1)
-    return y_pred, get_params_string(knn), elapsed, proba
+    y_pred_proba = knn.predict_proba(X_test)[:,1]
+    # proba = np.amax(y_pred_proba, axis=1)
+    return y_pred, get_params_string(knn), elapsed, y_pred_proba

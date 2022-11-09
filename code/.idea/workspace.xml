@@ -4,42 +4,24 @@
     <list default="true" id="d7ebbccb-117d-40ad-b239-9d46a41b8a6f" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ml/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/ml/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ml/ml_models.py" beforeDir="false" afterPath="$PROJECT_DIR$/ml/ml_models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ml/plots.py" beforeDir="false" afterPath="$PROJECT_DIR$/ml/plots.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/figures/proba/clean_reddit_cleaned_bow max_features=250_DT.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/figures/proba/clean_reddit_cleaned_bow max_features=250_KNN.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/figures/proba/clean_reddit_cleaned_bow max_features=250_NB.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/figures/proba/clean_reddit_cleaned_bow max_features=250_RF.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/figures/proba/clean_reddit_cleaned_bow max_features=250_SVM.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/figures/proba/clean_reddit_cleaned_tfidf max_features=250_DT.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/figures/proba/clean_reddit_cleaned_tfidf max_features=250_KNN.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/figures/proba/clean_reddit_cleaned_tfidf max_features=250_NB.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/figures/proba/clean_reddit_cleaned_tfidf max_features=250_RF.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/figures/proba/clean_reddit_cleaned_tfidf max_features=250_SVM.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/figures/proba/clean_tweeter_3_bow max_features=250_DT.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/figures/proba/clean_tweeter_3_bow max_features=250_KNN.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/figures/proba/clean_tweeter_3_bow max_features=250_NB.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/figures/proba/clean_tweeter_3_bow max_features=250_RF.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/figures/proba/clean_tweeter_3_bow max_features=250_SVM.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/figures/proba/clean_tweeter_3_tfidf max_features=250_DT.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/figures/proba/clean_tweeter_3_tfidf max_features=250_KNN.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/figures/proba/clean_tweeter_3_tfidf max_features=250_NB.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/figures/proba/clean_tweeter_3_tfidf max_features=250_RF.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/figures/proba/clean_tweeter_3_tfidf max_features=250_SVM.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/figures/proba/clean_twitter_scale_bow max_features=250_DT.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/figures/proba/clean_twitter_scale_bow max_features=250_KNN.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/figures/proba/clean_twitter_scale_bow max_features=250_NB.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/figures/proba/clean_twitter_scale_bow max_features=250_RF.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/figures/proba/clean_twitter_scale_bow max_features=250_SVM.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/figures/proba/clean_twitter_scale_tfidf max_features=250_DT.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/figures/proba/clean_twitter_scale_tfidf max_features=250_KNN.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/figures/proba/clean_twitter_scale_tfidf max_features=250_NB.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/figures/proba/clean_twitter_scale_tfidf max_features=250_RF.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/figures/proba/clean_twitter_scale_tfidf max_features=250_SVM.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/figures/single_tests/clean_reddit_cleaned_max_features=250_average=macro.png" beforeDir="false" afterPath="$PROJECT_DIR$/results/figures/single_tests/clean_reddit_cleaned_max_features=250_average=macro.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/figures/single_tests/clean_tweeter_3_max_features=250_average=macro.png" beforeDir="false" afterPath="$PROJECT_DIR$/results/figures/single_tests/clean_tweeter_3_max_features=250_average=macro.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/figures/single_tests/clean_twitter_scale_max_features=250_average=macro.png" beforeDir="false" afterPath="$PROJECT_DIR$/results/figures/single_tests/clean_twitter_scale_max_features=250_average=macro.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../informes/pendent de retocar.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../informes/pendent de retocar.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/figures/single_tests/clean_reddit_cleaned.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/figures/single_tests/clean_reddit_cleaned_max_features=1000.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/figures/single_tests/clean_reddit_cleaned_max_features=2000.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/figures/single_tests/clean_reddit_cleaned_max_features=250.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/figures/single_tests/clean_reddit_cleaned_max_features=250_average=macro.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/figures/single_tests/clean_reddit_cleaned_max_features=500.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/figures/single_tests/clean_tweeter_3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/figures/single_tests/clean_tweeter_3_max_features=2000.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/figures/single_tests/clean_tweeter_3_max_features=250.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/figures/single_tests/clean_tweeter_3_max_features=250_average=macro.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/figures/single_tests/clean_twitter_13_max_features=250.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/figures/single_tests/clean_twitter_scale_max_features=250.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/figures/single_tests/clean_twitter_scale_max_features=250_average=macro.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/figures/single_tests/clean_twitter_scale_max_features=250average=binary.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/figures/single_tests/clean_twitter_scale_max_features=250average=micro.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/figures/single_tests/tweeter_3_max_features=250.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/figures/single_tests/tweeter_3_max_features=None.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/figures/single_tests/twitter_scale_max_features=250.png" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

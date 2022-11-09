@@ -77,6 +77,13 @@ def read_dataset(name):
 
     return df
 
+def single_model_execution2():
+
+    max_features_list = [250, 1000, 5000, None]
+
+    for max_features in max_features_list:
+        a=1
+
 
 def single_model_execution():
     X_train_tfidf, X_test_tfidf, y_train_tfidf, y_test_tfidf = train_test_split(tfidf, df['label'],

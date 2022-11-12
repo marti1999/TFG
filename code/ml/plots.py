@@ -5,7 +5,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import csv
 import json
-
+from cycler import cycler
 import optuna.visualization
 
 
@@ -134,3 +134,77 @@ def save_results_to_csv(results):
     with open(r'../results/results.csv', 'a', newline='') as fd:
         write = csv.writer(fd, delimiter=';')
         write.writerow(row)
+
+def test():
+    dict = {
+        'NB_bow':{
+            'feature': 'BOW',
+            'n': [250, 2000, 5000, 10000, 25000],
+            'recall': [70, 70, 83, 80, 95]
+        },
+        'DT_bow': {
+            'feature': 'BOW',
+            'n': [250, 2000, 5000, 10000, 25000],
+            'recall': [60, 70, 80, 90, 95]
+        },
+        'RF_bow': {
+            'feature': 'BOW',
+            'n': [250, 2000, 5000, 10000, 25000],
+            'recall': [60, 70, 80, 90, 95]
+        },
+        'SVM_bow': {
+            'feature': 'BOW',
+            'n': [250, 2000, 5000, 10000, 25000],
+            'recall': [60, 70, 80, 90, 95]
+        },
+        'KNN_bow': {
+            'feature': 'BOW',
+            'n': [250, 2000, 5000, 10000, 25000],
+            'recall': [60, 70, 80, 90, 95]
+        },
+        'NB_tfidf': {
+            'feature': 'BOW',
+            'n': [250, 2000, 5000, 10000, 25000],
+            'recall': [60, 70, 80, 90, 95]
+        },
+        'DT_tfidf': {
+            'feature': 'BOW',
+            'n': [250, 2000, 5000, 10000, 25000],
+            'recall': [60, 70, 80, 90, 95]
+        },
+        'RF_tfidf': {
+            'feature': 'BOW',
+            'n': [250, 2000, 5000, 10000, 25000],
+            'recall': [60, 70, 80, 90, 95]
+        },
+        'SVM_tfidf': {
+            'feature': 'BOW',
+            'n': [250, 2000, 5000, 10000, 25000],
+            'recall': [60, 70, 80, 90, 95]
+        },
+        'KNN_tfidf': {
+            'feature': 'BOW',
+            'n': [250, 2000, 5000, 10000, 25000],
+            'recall': [66, 60, 60, 60, 40]
+        }
+    }
+
+    plt.rc('lines', linewidth=1)
+    plt.rc('axes', prop_cycle=(cycler('color', ['r', 'g', 'b', 'y', 'k', 'r', 'g', 'b', 'y', 'k']) +
+                               cycler('linestyle', ['-', '-','-','-','-', '--', '--', '--', '--', '--', ])))
+
+
+
+    for k, v in dict.items():
+        plt.plot(v['n'], v['recall'], label=str(k))
+
+
+
+    # plt.plot(dict['NB_bow']['n'], dict['NB_bow']['recall'])
+    plt.title('title name')
+    plt.xlabel('x_axis name')
+    plt.ylabel('y_axis name')
+    plt.ylim(0, 120)
+    plt.legend()
+    plt.show()
+    a=1

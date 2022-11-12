@@ -4,24 +4,7 @@
     <list default="true" id="d7ebbccb-117d-40ad-b239-9d46a41b8a6f" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ml/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/ml/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/figures/single_tests/clean_reddit_cleaned.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/figures/single_tests/clean_reddit_cleaned_max_features=1000.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/figures/single_tests/clean_reddit_cleaned_max_features=2000.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/figures/single_tests/clean_reddit_cleaned_max_features=250.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/figures/single_tests/clean_reddit_cleaned_max_features=250_average=macro.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/figures/single_tests/clean_reddit_cleaned_max_features=500.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/figures/single_tests/clean_tweeter_3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/figures/single_tests/clean_tweeter_3_max_features=2000.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/figures/single_tests/clean_tweeter_3_max_features=250.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/figures/single_tests/clean_tweeter_3_max_features=250_average=macro.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/figures/single_tests/clean_twitter_13_max_features=250.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/figures/single_tests/clean_twitter_scale_max_features=250.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/figures/single_tests/clean_twitter_scale_max_features=250_average=macro.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/figures/single_tests/clean_twitter_scale_max_features=250average=binary.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/figures/single_tests/clean_twitter_scale_max_features=250average=micro.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/figures/single_tests/tweeter_3_max_features=250.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/figures/single_tests/tweeter_3_max_features=None.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/figures/single_tests/twitter_scale_max_features=250.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ml/plots.py" beforeDir="false" afterPath="$PROJECT_DIR$/ml/plots.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -128,5 +111,16 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/ml/main.py</url>
+          <line>165</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

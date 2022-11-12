@@ -12,7 +12,7 @@ from sklearn.metrics import classification_report, accuracy_score, f1_score, pre
     mean_squared_error
 from ml.ml_models import execute_nb, execute_dtc, execute_rf, execute_svm, execute_knn
 from ml.plots import bar_plot_multiple_column, save_results_to_csv, parse_optuna_trials, Results, \
-    plot_optuna_metric_histogram, plot_proba_histogram
+    plot_optuna_metric_histogram, plot_proba_histogram, test
 from ml.preprocess_text import preprocess_text, create_tfidf, create_bow, save_df_to_csv
 from ml.hyperparamter_search import Objective
 
@@ -78,7 +78,7 @@ def read_dataset(name):
     return df
 
 def single_model_execution2():
-
+    # test
     max_features_list = [250, 1000, 5000, None]
 
     for max_features in max_features_list:
@@ -161,6 +161,7 @@ def hyperparameter_search(x, y, type="bow"):
 
 
 if __name__ == "__main__":
+    test()
     # file_name = "clean_tweeter_3"
     file_name = "clean_reddit_cleaned"
     # file_name = "clean_twitter_13"

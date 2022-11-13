@@ -85,7 +85,7 @@ def single_model_execution2():
         a=1
 
 
-def single_model_execution():
+def single_model_execution(df):
     X_train_tfidf, X_test_tfidf, y_train_tfidf, y_test_tfidf = train_test_split(tfidf, df['label'],
                                                                                 test_size=0.2, random_state=10)
     X_train_bow, X_test_bow, y_train_bow, y_test_bow = train_test_split(bow, df['label'],
@@ -139,9 +139,9 @@ def single_model_execution():
                dataset_name=file_name, type='bow max_features=' + str(max_features), seconds=elapsed,
                avg=metrics_average, proba_tfidf=proba_tfidf)
 
-    bar_plot_multiple_column(models, bow_score, tfidf_score, "bow max_features=" + str(max_features),
-                             'tfidf max_features=' + str(max_features),
-                             file_name + "_max_features=" + str(max_features) + "_average=" + metrics_average)
+    # bar_plot_multiple_column(models, bow_score, tfidf_score, "bow max_features=" + str(max_features),
+    #                          'tfidf max_features=' + str(max_features),
+    #                          file_name + "_max_features=" + str(max_features) + "_average=" + metrics_average)
 
 
 def hyperparameter_search(x, y, type="bow"):
@@ -161,7 +161,7 @@ def hyperparameter_search(x, y, type="bow"):
 
 
 if __name__ == "__main__":
-    test()
+    # test()
     # file_name = "clean_tweeter_3"
     file_name = "clean_reddit_cleaned"
     # file_name = "clean_twitter_13"
@@ -183,5 +183,5 @@ if __name__ == "__main__":
     tfidf = create_tfidf(df, max_features=max_features)
     bow = create_bow(df, max_features=max_features)
 
-    single_model_execution()
+    single_model_execution(df)
     # hyperparameter_search(tfidf, df['label'], type='tfidf' + " max_features=" + str(max_features))

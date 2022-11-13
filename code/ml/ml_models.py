@@ -59,7 +59,7 @@ def execute_svm(X_train, y_train, X_test):
 
 
 def execute_knn(X_train, y_train, X_test):
-    knn = KNeighborsClassifier()
+    knn = KNeighborsClassifier(weights='distance')
     start = time.perf_counter()
     knn.fit(X_train, y_train)
     y_pred = knn.predict(X_test)

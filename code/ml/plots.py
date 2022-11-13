@@ -7,6 +7,7 @@ import csv
 import json
 from cycler import cycler
 import optuna.visualization
+from matplotlib.ticker import PercentFormatter
 
 
 class Results:
@@ -71,21 +72,24 @@ def bar_plot_multiple_column(models, type1, type2, type1desc, type2desc, file_na
     plt.title('F1 Score')
     plt.ylim([0, 1.2])
 
-    plt.savefig("../results/figures/single_tests/" + file_name + ".png")
+    plt.savefig("../results/figures/single_tests/" + file_name + ".png", bbox_inches='tight')
     plt.show()
 
 
 def plot_proba_histogram(proba_bow, proba_tfidf, y, dataset=None, type=None, model=None):
-    sns.kdeplot(data=proba_bow[y == 0], label="Negatives bow", color='tomato')
-    sns.kdeplot(data=proba_bow[y == 1], label="Positives bow", color='mediumseagreen')
-    sns.kdeplot(data=proba_tfidf[y == 0], label="Negatives tfidf", linestyle="--", color='tomato')
-    sns.kdeplot(data=proba_tfidf[y == 1], label="Positives tfidf", linestyle="--", color='mediumseagreen')
+
+    sns.kdeplot(data=proba_bow[y == 0], label="Negatives bow", color='tomato', cut=0)
+    sns.kdeplot(data=proba_bow[y == 1], label="Positives bow", color='mediumseagreen', cut=0)
+    sns.kdeplot(data=proba_tfidf[y == 0], label="Negatives tfidf", linestyle="--", color='tomato', cut=0)
+    sns.kdeplot(data=proba_tfidf[y == 1], label="Positives tfidf", linestyle="--", color='mediumseagreen', cut=0)
+    # ax.yaxis.set_major_formatter(PercentFormatter(1/5))
+
     # plt.ylim(0, 110)
     plt.title(model)
     plt.ylabel("Density")
     plt.xlabel("Prediction probability")
     plt.legend(fontsize=15)
-    plt.savefig("../results/figures/proba/" + dataset + "_" + model + ".png")
+    plt.savefig("../results/figures/proba/" + dataset + "_" + model + ".png", bbox_inches='tight')
     plt.clf()
 
 

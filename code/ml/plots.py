@@ -74,12 +74,12 @@ def bar_plot_multiple_column(models, type1, type2, type1desc, type2desc, file_na
     plt.savefig("../results/figures/single_tests/" + file_name + ".png")
     plt.show()
 
-def plot_proba_histogram(proba_bow, proba_tfidf, y, dataset=None, type=None, model=None):
 
-    sns.kdeplot(data=proba_bow[y==0], label="Negatives bow", color='tomato')
-    sns.kdeplot(data=proba_bow[y==1], label="Positives bow", color='mediumseagreen')
-    sns.kdeplot(data=proba_tfidf[y==0], label="Negatives tfidf", linestyle="--", color='tomato')
-    sns.kdeplot(data=proba_tfidf[y==1], label="Positives tfidf", linestyle="--", color='mediumseagreen')
+def plot_proba_histogram(proba_bow, proba_tfidf, y, dataset=None, type=None, model=None):
+    sns.kdeplot(data=proba_bow[y == 0], label="Negatives bow", color='tomato')
+    sns.kdeplot(data=proba_bow[y == 1], label="Positives bow", color='mediumseagreen')
+    sns.kdeplot(data=proba_tfidf[y == 0], label="Negatives tfidf", linestyle="--", color='tomato')
+    sns.kdeplot(data=proba_tfidf[y == 1], label="Positives tfidf", linestyle="--", color='mediumseagreen')
     # plt.ylim(0, 110)
     plt.title(model)
     plt.ylabel("Density")
@@ -87,6 +87,7 @@ def plot_proba_histogram(proba_bow, proba_tfidf, y, dataset=None, type=None, mod
     plt.legend(fontsize=15)
     plt.savefig("../results/figures/proba/" + dataset + "_" + model + ".png")
     plt.clf()
+
 
 def plot_optuna_metric_histogram(study, dataset, type):
     metric_list = []
@@ -135,76 +136,29 @@ def save_results_to_csv(results):
         write = csv.writer(fd, delimiter=';')
         write.writerow(row)
 
-def test():
-    dict = {
-        'NB_bow':{
-            'feature': 'BOW',
-            'n': [250, 2000, 5000, 10000, 25000],
-            'recall': [70, 70, 83, 80, 95]
-        },
-        'DT_bow': {
-            'feature': 'BOW',
-            'n': [250, 2000, 5000, 10000, 25000],
-            'recall': [60, 70, 80, 90, 95]
-        },
-        'RF_bow': {
-            'feature': 'BOW',
-            'n': [250, 2000, 5000, 10000, 25000],
-            'recall': [60, 70, 80, 90, 95]
-        },
-        'SVM_bow': {
-            'feature': 'BOW',
-            'n': [250, 2000, 5000, 10000, 25000],
-            'recall': [60, 70, 80, 90, 95]
-        },
-        'KNN_bow': {
-            'feature': 'BOW',
-            'n': [250, 2000, 5000, 10000, 25000],
-            'recall': [60, 70, 80, 90, 95]
-        },
-        'NB_tfidf': {
-            'feature': 'BOW',
-            'n': [250, 2000, 5000, 10000, 25000],
-            'recall': [60, 70, 80, 90, 95]
-        },
-        'DT_tfidf': {
-            'feature': 'BOW',
-            'n': [250, 2000, 5000, 10000, 25000],
-            'recall': [60, 70, 80, 90, 95]
-        },
-        'RF_tfidf': {
-            'feature': 'BOW',
-            'n': [250, 2000, 5000, 10000, 25000],
-            'recall': [60, 70, 80, 90, 95]
-        },
-        'SVM_tfidf': {
-            'feature': 'BOW',
-            'n': [250, 2000, 5000, 10000, 25000],
-            'recall': [60, 70, 80, 90, 95]
-        },
-        'KNN_tfidf': {
-            'feature': 'BOW',
-            'n': [250, 2000, 5000, 10000, 25000],
-            'recall': [66, 60, 60, 60, 40]
-        }
-    }
 
+def test():
     plt.rc('lines', linewidth=1)
     plt.rc('axes', prop_cycle=(cycler('color', ['r', 'g', 'b', 'y', 'k', 'r', 'g', 'b', 'y', 'k']) +
-                               cycler('linestyle', ['-', '-','-','-','-', '--', '--', '--', '--', '--', ])))
+                               cycler('linestyle', ['-', '-', '-', '-', '-', '--', '--', '--', '--', '--', ])))
 
 
 
-    for k, v in dict.items():
-        plt.plot(v['n'], v['recall'], label=str(k))
+    # for k, v in dict.items():
+    #     plt.plot(v['n'], v['recall'], label=str(k))
 
 
+    #
+    # plt.plot(max_features, time_bow, label='avg time "bow"')
+    # plt.plot(max_features, time_tfidf, label='avg time "tfidf"')
 
     # plt.plot(dict['NB_bow']['n'], dict['NB_bow']['recall'])
-    plt.title('title name')
-    plt.xlabel('x_axis name')
-    plt.ylabel('y_axis name')
-    plt.ylim(0, 120)
+    plt.title('Twitter_scale dataset (zoom)')
+    plt.xlabel('max_features')
+    plt.ylabel('Recall')
+    plt.ylim(60, 80)
+    # plt.yscale('log')
     plt.legend()
+    plt.savefig('../results/figures/single_tests/twitter_scale_zoom.png')
     plt.show()
-    a=1
+    a = 1

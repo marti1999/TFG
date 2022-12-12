@@ -1,7 +1,3 @@
-explicar més bé tfidf (fòrmules)
-comparar resultats de predicicó entre train i test
-eliminar dataset que no funciona. Buscar-ne d'altres.
-buscar una tipololgia d'usuari un cop es trobin els tweets (crawler hashtags)./ Mirar també https://github.com/twintproject/twint
-
-
-comencar amb bert, després gpt
+version https://git-lfs.github.com/spec/v1
+oid sha256:7fd37069aa645c65d2c3bd3118723c46fef537c4c837238380960db321519d93
+size 314

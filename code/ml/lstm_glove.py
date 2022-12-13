@@ -18,11 +18,15 @@ def tokens_to_string(tokens, idx_to_word):  # Convert tokens back into their sti
 
 
 def main():
-    df_depression = pd.read_csv('../data/reddit_cleaned.csv')
+    # df_depression = pd.read_csv('../data/reddit_cleaned.csv')
+    df_depression = pd.read_csv('../data/clean_tweeter_3.csv')
+    # df_depression = pd.read_csv('../data/clean_twitter_scale.csv')
     print(df_depression.head())
 
-    data = [x for x in df_depression['clean_text']]
-    labels = [x for x in df_depression['is_depression']]
+    # data = [x for x in df_depression['clean_text']]
+    # labels = [x for x in df_depression['is_depression']]
+    data = [x for x in df_depression['message']]
+    labels = [x for x in df_depression['label']]
     data, labels = shuffle(data, labels)
 
     # Load our embeddings
@@ -92,8 +96,9 @@ def main():
     total_length = 0
     for i in range(len(x_train)):
         total_length += len(x_train[i])
-    total_length / len(x_train)
-    # de moment està hardcodejat, però max és >4k i mitjana 74. Ens quedem amb les 200 priemres que ja hi hauria d'haver suficient i estalviem recursos a l'ordinador
+    print("MITJANA: ", total_length / len(x_train))
+    # de moment està hardcodejat, però max és >4k i mitjana 74. Ens quedem amb les 200 primeres que ja hi hauria
+    # d'haver suficient i estalviem recursos a l'ordinador
     for i in range(len(x_train)):
         x_train[i] = x_train[i][:200]
 
@@ -183,7 +188,7 @@ def main():
         print("recall: ", tp/(tp+fn))
         print("f1: ", (2*tp)/(2*tp + fp + fn))
 
-    # print_accuracy(x_train_dataloader)
+    print_metrics(x_train_dataloader)
     print_metrics(y_test_dataloader)
 
 

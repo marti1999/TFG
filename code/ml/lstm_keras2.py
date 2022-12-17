@@ -3,6 +3,8 @@ import pandas as pd # data processing, CSV file I/O (e.g. pd.read_csv)
 import nltk
 import re
 import string
+
+from matplotlib import pyplot
 from nltk.corpus import stopwords
 nltk.download("stopwords")
 from sklearn.model_selection import train_test_split
@@ -15,9 +17,9 @@ from sklearn.metrics import classification_report
 
 
 def main():
-    # data = pd.read_csv("../data/reddit_cleaned.csv")
-    data = pd.read_csv('../data/clean_tweeter_3.csv')
-    # data = pd.read_csv('../data/clean_twitter_scale.csv')
+    # data = pd.read_csv("../data/clean_reddit_cleaned.csv")
+    # data = pd.read_csv('../data/clean_tweeter_3.csv')
+    data = pd.read_csv('../data/clean_twitter_scale.csv')
     stemmer = nltk.SnowballStemmer("english")
     stopword=set(stopwords.words('english'))
 
@@ -36,11 +38,14 @@ def main():
         return text
 
     # data["clean_text"] = data["clean_text"].apply(clean)
-    # data["message"] = data["message"].apply(clean)
+    data["message"] = data["message"].apply(clean)
     # x = data["clean_text"]
     x = data["message"]
     # y = data["is_depression"]
     y = data["label"]
+
+    fig_title = "twitter_scale_clean"
+
     X_train, X_test, Y_train, Y_test = train_test_split(x, y, test_size=0.2)
 
     max_vocab_length = 10000
@@ -79,11 +84,23 @@ def main():
     x = layers.LSTM(64, activation="tanh")(x)
     outputs = layers.Dense(1, activation="sigmoid")(x)
     model_2 = tf.keras.Model(inputs, outputs, name="model_2_lstm")
-    model_2.compile(loss='binary_crossentropy', optimizer='adam', metrics=['accuracy'])
-    model_2.fit(X_train, Y_train, validation_data=(X_test, Y_test), epochs=5)
+    model_2.compile(loss='binary_crossentropy', optimizer='adam', metrics=['Recall'])
+    hist = model_2.fit(X_train, Y_train, validation_data=(X_test, Y_test), epochs=5)
 
     Y_pred = model_2.predict(X_test)
     Y_pred = (Y_pred >= 0.5).astype("int")
+
+    pyplot.figure(figsize=(15, 5))
+    pyplot.subplot(1, 2, 1)
+    pyplot.plot(hist.history['loss'], 'r', label='Training loss')
+    pyplot.plot(hist.history['val_loss'], 'g', label='Validation loss')
+    pyplot.legend()
+    pyplot.subplot(1, 2, 2)
+    pyplot.plot(hist.history['recall'], 'r', label='Training recall')
+    pyplot.plot(hist.history['val_recall'], 'g', label='Validation recall')
+    pyplot.legend()
+    pyplot.savefig("../results/figures/" + fig_title + ".png")
+    pyplot.show()
 
     print(classification_report(Y_test, Y_pred))
 

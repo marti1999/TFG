@@ -18,9 +18,9 @@ def tokens_to_string(tokens, idx_to_word):  # Convert tokens back into their sti
 
 
 def main():
-    # df_depression = pd.read_csv('../data/reddit_cleaned.csv')
-    df_depression = pd.read_csv('../data/clean_tweeter_3.csv')
-    # df_depression = pd.read_csv('../data/clean_twitter_scale.csv')
+    # df_depression = pd.read_csv('../data/clean_reddit_cleaned.csv')
+    # df_depression = pd.read_csv('../data/clean_tweeter_3.csv')
+    df_depression = pd.read_csv('../data/clean_twitter_scale.csv')
     print(df_depression.head())
 
     # data = [x for x in df_depression['clean_text']]

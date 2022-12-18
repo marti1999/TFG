@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="d7ebbccb-117d-40ad-b239-9d46a41b8a6f" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ml/lstm_keras2.py" beforeDir="false" afterPath="$PROJECT_DIR$/ml/lstm_keras2.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ml/rnn_diff.py" beforeDir="false" afterPath="$PROJECT_DIR$/ml/rnn_diff.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,7 +45,7 @@
       <recent name="C:\Users\mcaix\UAB\TFG\code\ml" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.lstm_glove">
+  <component name="RunManager" selected="Python.rnn_diff">
     <configuration name="BERT1" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="code" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -160,11 +160,11 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.rnn_diff" />
         <item itemvalue="Python.lstm_glove" />
         <item itemvalue="Python.lstm_keras2" />
         <item itemvalue="Python.BERT1" />
         <item itemvalue="Python.rnn_medium" />
-        <item itemvalue="Python.rnn_diff" />
       </list>
     </recent_temporary>
   </component>
@@ -202,6 +202,11 @@
           <url>file://$PROJECT_DIR$/ml/main.py</url>
           <line>93</line>
           <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/ml/rnn_diff.py</url>
+          <line>168</line>
+          <option name="timeStamp" value="8" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

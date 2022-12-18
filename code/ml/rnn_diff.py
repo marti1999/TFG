@@ -3,6 +3,8 @@ import pandas as pd # data processing, CSV file I/O (e.g. pd.read_csv)
 import nltk
 import re
 import string
+
+from matplotlib import pyplot
 from nltk.corpus import stopwords
 nltk.download("stopwords")
 from sklearn.model_selection import train_test_split
@@ -37,20 +39,20 @@ def load_glove_model(glove_file):
 # adopted from utils.py
 nlp =  spacy.load("en_core_web_sm")
 
-def remove_stopwords(sentence):
-    '''
-    function to remove stopwords
-        input: sentence - string of sentence
-    '''
-    new = []
-    # tokenize sentence
-    sentence = nlp(sentence)
-    for tk in sentence:
-        if (tk.is_stop == False) & (tk.pos_ !="PUNCT"):
-            new.append(tk.string.strip())
-    # convert back to sentence string
-    c = " ".join(str(x) for x in new)
-    return c
+# def remove_stopwords(sentence):
+#     '''
+#     function to remove stopwords
+#         input: sentence - string of sentence
+#     '''
+#     new = []
+#     # tokenize sentence
+#     sentence = nlp(sentence)
+#     for tk in sentence:
+#         if (tk.is_stop == False) & (tk.pos_ !="PUNCT"):
+#             new.append(tk.string.strip())
+#     # convert back to sentence string
+#     c = " ".join(str(x) for x in new)
+#     return c
 
 
 def lemmatize(sentence):
@@ -80,21 +82,23 @@ def sent_vectorizer(sent, model):
     return sent_vector
 
 def main():
-    data = pd.read_csv("../data/reddit_cleaned.csv")
+    # data = pd.read_csv("../data/clean_reddit_cleaned.csv")
     # data = pd.read_csv('../data/clean_tweeter_3.csv')
-    # data = pd.read_csv('../data/clean_twitter_scale.csv')
+    data = pd.read_csv('../data/clean_twitter_scale.csv')
+    file_title = "rnn_diff_twitter_scale"
+    fig_title = "twitter_scale dataset"
 
-    data_X  = data["clean_text"].to_numpy()
-    # data_X = data["message"].to_numpy()
-    data_y  = data["is_depression"].to_numpy()
-    # data_y  = data["label"].to_numpy()
+    # data_X  = data["clean_text"].to_numpy()
+    data_X = data["message"].to_numpy()
+    # data_y  = data["is_depression"].to_numpy()
+    data_y  = data["label"].to_numpy()
     data_y = pd.get_dummies(data_y).to_numpy()
 
     glove_model = load_glove_model("./embedding/glove.6B.300d.txt")
     # number of vocab to keep
     max_vocab = 18000
     # length of sequence that will generate
-    max_len = 15
+    max_len = 10
     tokenizer = Tokenizer(num_words=max_vocab)
     tokenizer.fit_on_texts(data_X)
     sequences = tokenizer.texts_to_sequences(data_X)
@@ -150,34 +154,44 @@ def main():
 
         model.compile(loss='categorical_crossentropy',
                       optimizer='adam',
-                      metrics=['accuracy'])
+                      metrics=['Recall'])
         return model
 
     model_rnn = build_model(nb_words, "SimpleRNN", embedding_matrix)
-    model_rnn.fit(train_X, train_y, epochs=20, batch_size=120,
+    hist1 = model_rnn.fit(train_X, train_y, epochs=5, batch_size=120,
                   validation_data=(valid_X, valid_y),
-                  callbacks=EarlyStopping(monitor='val_accuracy', mode='max', patience=3))
+                  callbacks=EarlyStopping(monitor='val_recall', mode='max', patience=5))
     predictions = model_rnn.predict(valid_X)
     predictions = predictions.argmax(axis=1)
     print(classification_report(valid_y.argmax(axis=1), predictions))
 
 
     model_lstm = build_model(nb_words, "LSTM", embedding_matrix)
-    model_lstm.fit(train_X, train_y, epochs=20, batch_size=120,
+    hist2 = model_lstm.fit(train_X, train_y, epochs=5, batch_size=120,
                    validation_data=(valid_X, valid_y),
-                   callbacks=EarlyStopping(monitor='val_accuracy', mode='max', patience=3))
+                   callbacks=EarlyStopping(monitor='val_recall', mode='max', patience=5))
     predictions = model_lstm.predict(valid_X)
     predictions = predictions.argmax(axis=1)
     print(classification_report(valid_y.argmax(axis=1), predictions))
 
 
     model_gru = build_model(nb_words, "GRU", embedding_matrix)
-    model_gru.fit(train_X, train_y, epochs=20, batch_size=120,
+    hist3 = model_gru.fit(train_X, train_y, epochs=5, batch_size=120,
                   validation_data=(valid_X, valid_y),
-                  callbacks=EarlyStopping(monitor='val_accuracy', mode='max', patience=3))
+                  callbacks=EarlyStopping(monitor='val_recall', mode='max', patience=5))
     predictions = model_gru.predict(valid_X)
     predictions = predictions.argmax(axis=1)
     print(classification_report(valid_y.argmax(axis=1), predictions))
+
+    pyplot.plot(hist1.history['val_recall'], 'r', label='SimpleRNN Recall')
+    pyplot.plot(hist2.history['val_recall'], 'g', label='LSTM Recall')
+    pyplot.plot(hist3.history['val_recall'], 'b', label='GRU Recall')
+    pyplot.legend()
+    pyplot.ylabel("Recall")
+    pyplot.xlabel("Epochs")
+    pyplot.title(fig_title)
+    # pyplot.savefig("../results/figures/" + file_title + ".png")
+    pyplot.show()
 
 
 if __name__ == "__main__":

@@ -17,20 +17,22 @@ def main():
     filename = "../data/clean_twitter_scale.csv"
     # filename = "../data/clean_reddit_cleaned.csv"
 
-    df = pd.read_csv(filename)
-    df.drop(columns=['processed'])
+    file_name = "twitter_scale"
 
-    df = preprocess_text(df)
+    df = pd.read_csv(filename)
+    # df.drop(columns=['processed'])
+
+    # df = preprocess_text(df)
     # save_df_to_csv(df, "../data/clean2_tweeter_3.csv")
 
     # tweets = df.values[:, 1]
-    # tweets = df["message"]
-    tweets = df["processed"]
+    tweets = df["message"]
+    # tweets = df["processed"]
     # labels = df.values[:, 2].astype(float)
     labels = df["label"].astype(float)
 
 
-    bert_model = SentenceTransformer('distilbert-base-nli-mean-tokens')
+    bert_model = SentenceTransformer('distilbert-base-uncased-finetuned-sst-2-english')
 
     embeddings = bert_model.encode(tweets, show_progress_bar=True)
     print(embeddings.shape)
@@ -57,6 +59,8 @@ def main():
     pyplot.plot(hist.history['recall'], 'r', label='Training recall')
     pyplot.plot(hist.history['val_recall'], 'g', label='Validation recall')
     pyplot.legend()
+    pyplot.title(file_name)
+    pyplot.savefig("../results/figures/BERT1/" + file_name + ".png")
     pyplot.show()
 
 if __name__ == "__main__":

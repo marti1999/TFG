@@ -156,7 +156,7 @@ def main():
                 if i == 0:
                     print(f'Epoch: {epoch + 1}/{epochs} Loss: {loss}')
 
-    train(20)
+    train(100)
 
     def print_metrics(dataloader):
         tp = 0

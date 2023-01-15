@@ -18,8 +18,8 @@ from sklearn.metrics import classification_report
 
 def main():
     # data = pd.read_csv("../data/clean_reddit_cleaned.csv")
-    # data = pd.read_csv('../data/clean_tweeter_3.csv')
-    data = pd.read_csv('../data/clean_twitter_scale.csv')
+    data = pd.read_csv('../data/clean_tweeter_3.csv')
+    # data = pd.read_csv('../data/clean_twitter_scale.csv')
     stemmer = nltk.SnowballStemmer("english")
     stopword=set(stopwords.words('english'))
 
@@ -99,7 +99,7 @@ def main():
     pyplot.plot(hist.history['recall'], 'r', label='Training recall')
     pyplot.plot(hist.history['val_recall'], 'g', label='Validation recall')
     pyplot.legend()
-    pyplot.savefig("../results/figures/" + fig_title + ".png")
+    # pyplot.savefig("../results/figures/" + fig_title + ".png")
     pyplot.show()
 
     print(classification_report(Y_test, Y_pred))

@@ -158,27 +158,30 @@ def main():
         return model
 
     model_rnn = build_model(nb_words, "SimpleRNN", embedding_matrix)
-    hist1 = model_rnn.fit(train_X, train_y, epochs=5, batch_size=120,
-                  validation_data=(valid_X, valid_y),
-                  callbacks=EarlyStopping(monitor='val_recall', mode='max', patience=5))
+    hist1 = model_rnn.fit(train_X, train_y, epochs=200, batch_size=120,
+                  validation_data=(valid_X, valid_y)
+                          #,callbacks=EarlyStopping(monitor='val_recall', mode='max', patience=5)
+                          )
     predictions = model_rnn.predict(valid_X)
     predictions = predictions.argmax(axis=1)
     print(classification_report(valid_y.argmax(axis=1), predictions))
 
 
     model_lstm = build_model(nb_words, "LSTM", embedding_matrix)
-    hist2 = model_lstm.fit(train_X, train_y, epochs=5, batch_size=120,
-                   validation_data=(valid_X, valid_y),
-                   callbacks=EarlyStopping(monitor='val_recall', mode='max', patience=5))
+    hist2 = model_lstm.fit(train_X, train_y, epochs=200, batch_size=120,
+                   validation_data=(valid_X, valid_y)
+                          #,callbacks=EarlyStopping(monitor='val_recall', mode='max', patience=5)
+                          )
     predictions = model_lstm.predict(valid_X)
     predictions = predictions.argmax(axis=1)
     print(classification_report(valid_y.argmax(axis=1), predictions))
 
 
     model_gru = build_model(nb_words, "GRU", embedding_matrix)
-    hist3 = model_gru.fit(train_X, train_y, epochs=5, batch_size=120,
-                  validation_data=(valid_X, valid_y),
-                  callbacks=EarlyStopping(monitor='val_recall', mode='max', patience=5))
+    hist3 = model_gru.fit(train_X, train_y, epochs=200, batch_size=120,
+                  validation_data=(valid_X, valid_y)
+                          #,callbacks=EarlyStopping(monitor='val_recall', mode='max', patience=5)
+                          )
     predictions = model_gru.predict(valid_X)
     predictions = predictions.argmax(axis=1)
     print(classification_report(valid_y.argmax(axis=1), predictions))

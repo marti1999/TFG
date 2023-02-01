@@ -8,7 +8,7 @@ It consists of three main directories:
 - src: the actual project. Besides all the code, it also has the data used as input, all the output images, and a csv file with all the experiment results.
 
 ## Changelog
-### Initial report
+### Initial report [Old](https://github.com/marti1999/TFG/blob/ca7f650c6de6370c5b73d847a2230e85e6cfb948/informes/informe_inicial.pdf) --> [New](https://github.com/marti1999/TFG/blob/b228dab61273fc939dc72e52a9c74fe4df7074c7/informes/informe_inicial.pdf)
 After delivering the initial report, the following changes were made:
 1. Overall enhancement of the report, expanding its content
 2. Creating a planification dividing the project in parts and subparts, assigning each of them to a different week.
@@ -16,19 +16,19 @@ After delivering the initial report, the following changes were made:
 4. Research on the state of art
 5. Besides stating the objectives, actually defining them and making it clearer when such objectives would be achieved.
 
-### 1st progress report
+### 1st progress report [Old](https://github.com/marti1999/TFG/blob/master/informes/informe_progres_1.pdf) --> [New](https://github.com/marti1999/TFG/blob/master/informes/informe_progres_2.pdf)
 1. Adding examples and formulas when explaining the features extraction methods for shallow learning.
 2. Instead of showing 6 graphs with 2 balues each, merging them all together so it is easier to compare all the twelve values.
 3. Explanation on how are the experiments and results stored and later fetched for reference.
 4. Properly ploting confidence in predictions. Instead of using a single histgram for each prediction type (TP, TN, FP, FN), merging them all into a single plot and showing distribution functions.
 
-### 2nd progress report
+### 2nd progress report [Old](https://github.com/marti1999/TFG/blob/master/informes/informe_progres_2.pdf) --> [New](https://github.com/marti1999/TFG/blob/master/informes/proporsta_informe_final.pdf)
 1. Doing a better explanation on what neural networks are and which  kind I am using.
 2. Properly explaining word embedding and GloVe.
 3. Adding old results into the new plots showing the metrics using all the different types of RNN.
 4. Expanding the conclusions so they don't feel that empty. Removing some explanations from the results that fit into the conclusions.
 
-### Paper proposal
+### Paper proposal [Old](https://github.com/marti1999/TFG/blob/master/informes/proporsta_informe_final.pdf) --> [New](https://github.com/marti1999/TFG/blob/master/informes/infome_final.pdf)
 1. Adding captions to figures with some explanation on what they are or mean.
 2. Adding Kant Diagram to the apendix.
 3. Describing datasets.
